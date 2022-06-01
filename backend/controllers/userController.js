@@ -1,4 +1,8 @@
 const asyncHandler = require('express-async-handler')
+//To hash password
+const bcrypt = require('bcryptjs')
+
+const User = require('../models/userModel')
 
 
 // @desc    Register a new user
