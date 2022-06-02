@@ -85,8 +85,6 @@ const getMe = asyncHandler(async (req, res) => {
    res.status(200).json(user)
 })
 
-
-
 // Generate token
 const generateToken = (id) => {
    return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -99,3 +97,5 @@ module.exports = {
    loginUser,
    getMe,
 }
+
+//Completed
