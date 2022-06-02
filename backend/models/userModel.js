@@ -1,5 +1,5 @@
 // A schema, all the fields we want for user
-const mongoose = requier('mongoose')
+const mongoose = require('mongoose')
 
 const userSchema = mongoose.Schema({
    name: {

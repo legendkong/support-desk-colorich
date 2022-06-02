@@ -37,22 +37,22 @@ const registerUser = asyncHandler(async (req, res) => {
       password: hashedPassword
    })
 
-   // If useris created
+   // If user is created
    if(user){
       res.status(201).json({
          _id: user._id,
          name: user.name,
          email: user.email
       })
+   }else {
+      res.status(400)
+      throw new error('Invalid user data')
    }
-
-   res.send('Register Route')
 })
 
 // @desc    Register a new user
 // @route   /api/users
 // @access  Public
-
 const loginUser = asyncHandler(async (req, res) => {
    res.send('Login Route')
 })
