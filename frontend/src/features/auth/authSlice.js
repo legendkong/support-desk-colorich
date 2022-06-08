@@ -58,8 +58,8 @@ export const authSlice = createSlice ({
             state.message = action.payload
             state.user = null
          })
-
-   }
+   },
 })
 
+export const {reset} = authSlice.actions
 export default authSlice.reducer

@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom'
 import {FaUser} from 'react-icons/fa'
 import {toast} from 'react-toastify'
 import {useSelector, useDispatch} from 'react-redux'
-import {register} from '../features/auth/authSlice'
+import {register, reset} from '../features/auth/authSlice'
 
 function Register() {
    const [formData, setFormdata] = useState({
@@ -30,7 +30,9 @@ function Register() {
       if(isSuccess || user) {
          navigate('/')
       }
-   })
+
+      dispatch(reset())
+   }, [isError, isSuccess, user, message, navigate, dispatch])
 
    const onChange = (e) => {
       setFormdata((prevState) => ({
