@@ -6,7 +6,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import {register, reset} from '../features/auth/authSlice'
 
 function Register() {
-   const [formData, setFormdata] = useState({
+   const [formData, setFormData] = useState({
       name: '',
       email: '',
       password: '',
@@ -19,15 +19,17 @@ function Register() {
    const dispatch = useDispatch()
    const navigate = useNavigate()
 
-   const {user, isLoading, isError, isSuccess, message} = useSelector(state => state.auth)
+   const {user, isLoading, isError, isSuccess, message} = useSelector(
+      (state) => state.auth
+   )
 
    useEffect(() => {
-      if(isError) {
+      if (isError) {
          toast.error(message)
       }
 
       // Redirect when logged in
-      if(isSuccess || user) {
+      if (isSuccess || user) {
          navigate('/')
       }
 
@@ -35,7 +37,7 @@ function Register() {
    }, [isError, isSuccess, user, message, navigate, dispatch])
 
    const onChange = (e) => {
-      setFormdata((prevState) => ({
+      setFormData((prevState) => ({
          ...prevState,
          [e.target.name]: e.target.value,
       }))
@@ -50,7 +52,7 @@ function Register() {
          const userData = {
             name,
             email,
-            password
+            password,
          }
 
          dispatch(register(userData))
@@ -61,7 +63,7 @@ function Register() {
       <>
          <section className="heading">
             <h1>
-               <FaUser /> Register {user}
+               <FaUser /> Register
             </h1>
             <p>Please create an account</p>
          </section>
