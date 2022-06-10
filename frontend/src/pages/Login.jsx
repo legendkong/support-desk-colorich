@@ -49,7 +49,11 @@ function Login() {
          password
       }
 
-         dispatch(login(userData))
+      dispatch(login(userData))
+   }
+
+   if(isLoading) {
+      return <Spinner />
    }
 
    return (
